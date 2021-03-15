@@ -69,8 +69,8 @@ struct order
     int total_price;
 } order_info;
 
-//void welcome();
-void thanks();
+//ALL THE FUNTIONS OF CODE !!!
+
 int LoginSystem();
 int USER();
 int userLogin();
@@ -109,7 +109,9 @@ void checkout();
 void order_history();
 void Mobile_payment();
 void Card_payment();
-
+//others
+void thanks();
+void info();
 void KidsnMom()
 {
     system("cls");
@@ -175,8 +177,7 @@ void Bclothing()
     fclose(fptr);
     printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
 void Bfood()
 {
@@ -209,8 +210,7 @@ void Bfood()
     fclose(fptr);
     printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
 void Btoys()
 {
@@ -243,8 +243,7 @@ void Btoys()
     fclose(fptr);
     printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
 void Mclothing()
 {
@@ -277,44 +276,8 @@ void Mclothing()
     fclose(fptr);
     printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
-void Mequipments()
-{
-    FILE *fptr;
-    system("cls");
-    fptr=fopen(BBfile,"rb+");
-    if(fptr==NULL)
-    {
-        printf("\t\tFile is not created!!!\n");
-    }
-    else
-    {
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN CLOTHING \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        while(fread(&MEN,sizeof(MEN),1,fptr))
-        {
-            if(MEN.category==5)
-            {
-                printf("\n\t\t Products Category: ");
-                if(MEN.category==4) printf("MEN CLOTHES !!!\t\n");
-                else if(MEN.category==5) printf("MEN FOODS !!!\t\n");
-                else if(MEN.category==6) printf("MEN EQUIPMENTS !!!\t\n");
-                printf("\n\t\t\t product serial no. : %d",MEN.mserial);
-                printf("\n\t\t\t product name       : %s",MEN.mname);
-                printf("\n\t\t\t product price      : %d",MEN.mprice);
-            }
-        }
-    }
-    fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
-    Cart();
-    getchar();
-    getchar();
-}
-
 void Mfood()
 {
     FILE *fptr;
@@ -327,7 +290,7 @@ void Mfood()
     else
     {
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN CLOTHING \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN FOODS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
         while(fread(&MEN,sizeof(MEN),1,fptr))
         {
@@ -346,10 +309,10 @@ void Mfood()
     fclose(fptr);
     printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
-void TechComputer()
+
+void Mequipments()
 {
     FILE *fptr;
     system("cls");
@@ -361,27 +324,26 @@ void TechComputer()
     else
     {
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN CLOTHING \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN EQUIPMENTS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        while(fread(&TECH,sizeof(TECH),1,fptr))
+        while(fread(&MEN,sizeof(MEN),1,fptr))
         {
-            if(TECH.category==7)
+            if(MEN.category==6)
             {
                 printf("\n\t\t Products Category: ");
-                if(TECH.category==7) printf("TECH CLOTHES !!!\t\n");
-                else if(TECH.category==8) printf("TECH FOODS !!!\t\n");
-                else if(TECH.category==9) printf("TECH EQUIPMENTS !!!\t\n");
-                printf("\n\t\t\t product serial no. : %d",TECH.tserial);
-                printf("\n\t\t\t product name       : %s",TECH.tname);
-                printf("\n\t\t\t product price      : %d",TECH.tprice);
+                if(MEN.category==4) printf("MEN CLOTHES !!!\t\n");
+                else if(MEN.category==5) printf("MEN FOODS !!!\t\n");
+                else if(MEN.category==6) printf("MEN EQUIPMENTS !!!\t\n");
+                printf("\n\t\t\t product serial no. : %d",MEN.mserial);
+                printf("\n\t\t\t product name       : %s",MEN.mname);
+                printf("\n\t\t\t product price      : %d",MEN.mprice);
             }
         }
     }
     fclose(fptr);
     printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
 void TechMobile()
 {
@@ -395,27 +357,59 @@ void TechMobile()
     else
     {
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN CLOTHING \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 TECH MOBILES \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        while(fread(&MEN,sizeof(MEN),1,fptr))
+        while(fread(&TECH,sizeof(TECH),1,fptr))
         {
-            if(MEN.category==8)
+            if(TECH.category==7)
             {
                 printf("\n\t\t Products Category: ");
-                if(MEN.category==7) printf("MEN CLOTHES !!!\t\n");
-                else if(MEN.category==8) printf("MEN FOODS !!!\t\n");
-                else if(MEN.category==9) printf("MEN EQUIPMENTS !!!\t\n");
-                printf("\n\t\t\t product serial no. : %d",MEN.mserial);
-                printf("\n\t\t\t product name       : %s",MEN.mname);
-                printf("\n\t\t\t product price      : %d",MEN.mprice);
+                if(TECH.category==7) printf("TECH MOBILES !!!\t\n");
+                else if(TECH.category==8) printf("TECH COMPUTER !!!\t\n");
+                else if(TECH.category==9) printf("TECH ACCESSORIES !!!\t\n");
+                printf("\n\t\t\t product serial no. : %d",TECH.tserial);
+                printf("\n\t\t\t product name       : %s",TECH.tname);
+                printf("\n\t\t\t product price      : %d",TECH.tprice);
             }
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
+}
+void TechComputer()
+{
+    FILE *fptr;
+    system("cls");
+    fptr=fopen(BBfile,"rb+");
+    if(fptr==NULL)
+    {
+        printf("\t\tFile is not created!!!\n");
+    }
+    else
+    {
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 TECH COMPUTERS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+        while(fread(&TECH,sizeof(TECH),1,fptr))
+        {
+            if(TECH.category==8)
+            {
+                printf("\n\t\t Products Category: ");
+                if(TECH.category==7) printf("TECH MOBILES !!!\t\n");
+                else if(TECH.category==8) printf("TECH COMPUTERS !!!\t\n");
+                else if(TECH.category==9) printf("TECH ACCESSORIES !!!\t\n");
+                printf("\n\t\t\t product serial no. : %d",TECH.tserial);
+                printf("\n\t\t\t product name       : %s",TECH.tname);
+                printf("\n\t\t\t product price      : %d",TECH.tprice);
+            }
+        }
+    }
+    fclose(fptr);
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
+    Cart();
+    getch();
 }
 void TechAccessories()
 {
@@ -429,27 +423,26 @@ void TechAccessories()
     else
     {
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MEN CLOTHING \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+        printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 TECH ACCESSORIES \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
         printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-        while(fread(&MEN,sizeof(MEN),1,fptr))
+        while(fread(&TECH,sizeof(TECH),1,fptr))
         {
-            if(MEN.category==9)
+            if(TECH.category==9)
             {
                 printf("\n\t\t Products Category: ");
-                if(MEN.category==7) printf("MEN CLOTHES !!!\t\n");
-                else if(MEN.category==8) printf("MEN FOODS !!!\t\n");
-                else if(MEN.category==9) printf("MEN EQUIPMENTS !!!\t\n");
-                printf("\n\t\t\t product serial no. : %d",MEN.mserial);
-                printf("\n\t\t\t product name       : %s",MEN.mname);
-                printf("\n\t\t\t product price      : %d",MEN.mprice);
+                if(TECH.category==7) printf("TECH MOBILES !!!\t\n");
+                else if(TECH.category==8) printf("TECH COMPUTERS !!!\t\n");
+                else if(TECH.category==9) printf("TECH ACCESSORIES !!!\t\n");
+                printf("\n\t\t\t product serial no. : %d",TECH.tserial);
+                printf("\n\t\t\t product name       : %s",TECH.tname);
+                printf("\n\t\t\t product price      : %d",TECH.tprice);
             }
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
     Cart();
-    getchar();
-    getchar();
+    getch();
 }
 
 void Cart()
@@ -458,6 +451,8 @@ void Cart()
     FILE *fptr,*tempFptr;
     int tempCart;
     scanf("%d",&tempCart);
+    getch();
+    system("cls");
     fptr=fopen(BBfile,"rb+");
     tempFptr=fopen("Cart.bin","ab+");
     if(tempFptr==NULL)
@@ -474,6 +469,10 @@ void Cart()
     fclose(fptr);
     fclose(tempFptr);
     fptr=fopen("Cart.bin","rb+");
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2");
+    printf("\n\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MY CART \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+
     while(fread(&BABY,sizeof(BABY),1,fptr))
     {
         printf("\n\t\t\tProducts Category: ");
@@ -487,7 +486,7 @@ void Cart()
     }
     fclose(fptr);
 
-    getchar();
+    getch();
     printf("\n\t\tWant to buy more products ? \n\t\t(ENTER 1 :)");
     printf("\n\t\tProduct selected to confirm order\n\t\t(ENTER 2 :)\n\t\t=>");
     scanf("%d",&n);
@@ -495,7 +494,6 @@ void Cart()
     {
         KidsnMom();
     }
-
     else if(n==2)
     {
         Payment();
@@ -515,9 +513,13 @@ void Payment()
     }
     fclose(fptr);
     system("cls");
-    printf("\n\t\tTOTAL PRICE : %d", count);
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2");
+    printf("\n\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 PAYMENT OPTIONS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+
+    printf("\n\t\t\xB3\xB3\xB3 TOTAL PRICE : %d\xB3\xB3\xB3\n", count);
     printf("\n\t\tWhat payment system are you going to use ?\n");
-    printf("\t\tMobile Banking (ENTER 1):\n\n");
+    printf("\n\t\tMobile Banking (ENTER 1):\n\n");
     printf("\t\tENTER 2 for VISA/MASTER Card (ENTER 2):\n\n");
     printf("\t\tCASH ON DELIVERY (ENTER 3):\n\n\t\t=>");
     scanf("%d", &choice);
@@ -538,11 +540,16 @@ void Payment()
 
 void Mobile_payment()
 {
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2");
+    printf("\n\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MOBILE PAYMENT OPTIONS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+
     printf("\n\t\t1. Pay through Bkash\n");
     printf("\n\t\t2. Pay through Rocket\n");
     printf("\n\t\t3. Pay through Nagad\n");
     printf("\n\t\tENTER your choice \n\t\t=> ");
     scanf("%d",&choice);
+    system("cls");
     if(choice==1)printf("\n\t\tWelcome to pay BKASH PAYMENT GATEWAY !!");
     else if(choice==2)printf("\n\t\tWelcome to pay ROCKET PAYMENT GATEWAY !!");
     else if(choice==3)printf("\n\t\tWelcome to pay NAGAD PAYMENT GATEWAY !!");
@@ -555,14 +562,17 @@ void Mobile_payment()
 }
 void Card_payment()
 {
-    system("cls");
+
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2");
+    printf("\n\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 CARD PAYMENT OPTIONS \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\n\t\t1. Pay through VISA CARD\n");
     printf("\n\t\t2. Pay through MASTER CARD\n");
     printf("\n\t\tENTER your choice \n\t\t=> ");
     scanf("%d",&choice);
+    system("cls");
     if(choice==1)printf("\n\t\tWelcome to pay VISA CARD PAYMENT GATEWAY !!");
     else if(choice==2)printf("\n\t\tWelcome to pay MASTER CARD PAYMENT GATEWAY !!");
-
     printf("\n\t\tENTER Your CARD No: ");
     scanf("%ld", &Payment_info.account);
     printf("\n\t\tENTER Pin : ");
@@ -572,7 +582,6 @@ void Card_payment()
     printf("\n\n");
     checkout();
 }
-
 void checkout()
 {
     FILE *fptr, *temp;
@@ -607,9 +616,11 @@ void checkout()
     fclose(fptr);
     fclose(temp);
     remove("Cart.bin");
-    //order_history();
     thanks();
-    }
+    printf("\n\t\t\t\t\tHOPE YOU ENJOYED SHOPPING WITH US !!! HAPPY SHOPPING :) \n");
+    getch();
+    exit(0);
+}
 
 void order_history()
 {
@@ -634,7 +645,7 @@ void order_history()
     }
     fclose(fptr);
     printf("Thank you for placing your order ");
-    getchar();
+    getch();
     exit(0);
 }
 void Products_Category()
@@ -697,7 +708,7 @@ void Admin_products_update()
             system("cls");
             ADD_CATEGORY();
             printf("\n\n\t\t\tPRODUCT ADDED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
         }
         else if(choice==2)
@@ -708,7 +719,7 @@ void Admin_products_update()
             system("cls");
             DELETE_CATEGORY();
             printf("\n\n\t\t\tPRODUCT DELETED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
         }
         break;
@@ -725,7 +736,7 @@ void Admin_products_update()
             system("cls");
             ADD_CATEGORY();
             printf("\n\n\t\t\tPRODUCT ADDED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
         }
         else if(choice==2)
@@ -736,7 +747,7 @@ void Admin_products_update()
             system("cls");
             DELETE_CATEGORY();
             printf("\n\n\t\t\tPRODUCT DELETED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
         }
         break;
@@ -753,7 +764,7 @@ void Admin_products_update()
             system("cls");
             ADD_CATEGORY();
             printf("\n\n\t\t\tPRODUCT ADDED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
         }
         else if(choice==2)
@@ -764,7 +775,7 @@ void Admin_products_update()
             system("cls");
             DELETE_CATEGORY();
             printf("\n\n\t\t\tPRODUCT DELETED SUCCESSFULLY \n\n");
-            getchar();
+            getch();
             Admin_products_update();
             break;
         case 4:
@@ -799,7 +810,11 @@ void ADD_CATEGORY()
         printf("\n\tIf TECH MOBILE (ENTER 7)\t|||\tTECH COMPUTER (ENTER 8)\t|||\tTECH ACCESSORIES (ENTER 9) [SERIAL 700-900]\n");
         printf("\n\t\t Want to go back to previous page!!!(ENTER 10)\n\n\t\t =>");
         scanf("%d",&BABY.category);
-        if(BABY.category==10){Admin_products_update();system("cls");}
+        if(BABY.category==10)
+        {
+            Admin_products_update();
+            system("cls");
+        }
         printf("\t\tENTER product serial no. : \t");
         scanf("%d",&BABY.bserial);
         printf("\t\tENTER product name       : \t");
@@ -823,13 +838,12 @@ void ADD_CATEGORY()
             else if(BABY.category==6) printf("MEN EQUIPMENTS !!!\t\n");
             //TECH
             else if(BABY.category==7) printf("TECH MOBILE !!!\t\n");
-            else if(BABY.category==8) printf("MEN COMPUTER !!!\t\n");
+            else if(BABY.category==8) printf("TECH COMPUTER !!!\t\n");
             else if(BABY.category==9) printf("TECH ACCESSORIES !!!\t\n");
 
             printf("\n\t product serial no. : %d\t|",BABY.bserial);
             printf(" product name       : %s\t|",BABY.bname);
             printf(" ENTER product price      : %d ",BABY.bprice);
-
         }
     }
     fclose(fptr);
@@ -838,7 +852,7 @@ void ADD_CATEGORY()
 void DELETE_CATEGORY()
 {
     SeeProducts();
-    getchar();
+    getch();
     FILE *fptr,*tempFptr;
     int tempDelete;
     printf("\n\t\tENTER the data you want to delete :\t");
@@ -927,8 +941,9 @@ void Tech()
     printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
     printf("\t\tENTER what type of Tech product you want to purchase: \n");
-    printf("\t\t1. Tech Accessories \n");
-    printf("\t\t2. Tech Equipments\n");
+    printf("\t\t1. Tech Mobile \n");
+    printf("\t\t2. Tech Computer\n");
+    printf("\t\t2. Tech Accessories\n");
     printf("\t\t3. Want to go back to previous panel!!!\n");
     printf("\n\t\tENTER your choice \n\t\t=>");
     scanf("%d",&n);
@@ -967,7 +982,7 @@ int LoginSystem()
     printf("\t\t\xB2\xB2\xB2\t\t\t\t\t\t\t\t\t\t\t\t\t\xB2\xB2\xB2\n");
     printf("\t\t\xB2\xB2\xB2\t\t\t\t\t\t\t\t\t\t\t\t\t\xB2\xB2\xB2\n");
     printf("\t\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\n \t\tFOR USER  (ENTER 1):\n \t\tFOR ADMIN (ENTER 2):\n \t\tTO EXIT PROGRAM (ENTER 3):\n\n\t\t=> ");
+    printf("\n \t\tFOR USER  (ENTER 1):\n \t\tFOR ADMIN (ENTER 2):\n \t\tTO SEE DEVELOPER INFO (ENTER 3):\n \t\tTO EXIT PROGRAM (ENTER 4):\n\n\t\t=> ");
     {
         int choice;
         scanf("%d",&choice);
@@ -981,6 +996,13 @@ int LoginSystem()
             ADMIN();
         }
         else if(choice==3)
+        {
+            info();
+            getch();
+            system("cls");
+            main();
+        }
+        else if(choice==4)
         {
             exit(0);
         }
@@ -1078,7 +1100,7 @@ int userLogin()
     if(flag==0)
     {
         system("cls");
-        printf("\n\t\tLOGIN ERROR!!!\n\t\tIncorrect user-name or password.\n\t\tOr you may try REGISTRATIONing or log in again :\n\n\t\tTO REGISTRATION (ENTER 1):\n\n\t\tTO LOGIN (ENTER 2):\n\n\t\tFORGOTTEN PASSWORD (ENTER 3):\n\n\t=>");
+        printf("\n\t\tLOGIN ERROR!!!\n\t\tIncorrect user-name or password.\n\t\tOr you may try REGISTRATION or log in again :\n\n\t\tTO REGISTRATION (ENTER 1):\n\n\t\tTO LOGIN (ENTER 2):\n\n\t\tFORGOTTEN PASSWORD (ENTER 3):\n\n\t=>");
         choice=0;
         scanf("%d",&choice);
         system("cls");
@@ -1140,8 +1162,7 @@ int userForgot()
             printf("\n\t\tHello %s, \n\t\tyour username is : \" %s \"",userInfo.name,userInfo.username);
             printf("\n\t\tYour password is : \" %s \"\n",userInfo.password);
             count++;
-            getchar();
-            getchar();
+            getch();
             printf("\t\tPress any key to login...");
             userLogin();
         }
@@ -1150,8 +1171,7 @@ int userForgot()
     {
         printf("\t\tOpps !! SORRY,\n\t\tNO RECORD FOUND!\n\t\tTRY AGAIN !!!\n\n");
         printf("\t\tPress any key to login...");
-        getchar();
-        getchar();
+        getch();
         userForgot();
     }
     fclose(fptr);
@@ -1240,7 +1260,7 @@ int adminLogin()
             getch();
             Admin_products_update();
             printf("\n\t\t\tEnter any key to go back to MAIN PAGE !!!\n");
-            getchar();
+            getch();
             main();
         }
     }
@@ -1248,7 +1268,7 @@ int adminLogin()
     if(flag==0)
     {
         system("cls");
-        printf("\n\t\tLOGIN ERROR!!!\n\t\tIncorrect user-name or password.\n\t\tOr you may try REGISTRATIONing or log in again :\n\n\t\tTO REGISTRATION (ENTER 1):\n\t\tTO LOGIN (ENTER 2):\n\t\tFORGOTTEN PASSWORD (ENTER 3)\t\tn=>");
+        printf("\n\t\tLOGIN ERROR!!!\n\t\tIncorrect user-name or password.\n\t\tOr you may try REGISTRATION or log in again :\n\n\t\tTO REGISTRATION (ENTER 1):\n\t\tTO LOGIN (ENTER 2):\n\t\tFORGOTTEN PASSWORD (ENTER 3)\t\tn=>");
         choice=0;
         scanf("%d",&choice);
         system("cls");
@@ -1307,8 +1327,7 @@ int adminForgot()
             printf("\n\t\tHello %s, \n\t\tyour username is : \" %s \"",adminInfo.name,adminInfo.username);
             printf("\n\t\tYour password is : \" %s \"\n",adminInfo.password);
             count++;
-            getchar();
-            getchar();
+            getch();
             printf("\t\tPress any key to login...");
             adminLogin();
         }
@@ -1317,30 +1336,36 @@ int adminForgot()
     {
         printf("\t\tOpps !! SORRY,\n\t\tNO RECORD FOUND!\n\t\tTRY AGAIN !!!\n\n");
         printf("\t\tPress any key to login...");
-        getchar();
-        getchar();
+        getch();
         adminForgot();
     }
     fclose(fptr);
 }
 
-//void welcome()
-//{
-//
-//    printf("\t\t\t\t ***                    *** ********  **               ******     **********            **      **          *********  \n");
-//    printf("\t\t\t\t  **                    **  **        **             *          **          **         ** **   ** **        **         \n");
-//    printf("\t\t\t\t   **                  **   **        **           *          **              **      **   ** **   **       **         \n");
-//    printf("\t\t\t\t    **                **    **        **          *          **                **    **     ***     **      **         \n");
-//    printf("\t\t\t\t     **      **      **     ******    **          *          **                **   **       *       **     ******     \n");
-//    printf("\t\t\t\t      **    ****    **      **        **           *          **              **   **                 **    **         \n");
-//    printf("\t\t\t\t       **  **  **  **       **        **            *          **             **  **                   **   **         \n");
-//    printf("\t\t\t\t        ****    ****        **        **             *           **         **   **                     **  **         \n");
-//    printf("\t\t\t\t         **      **         ********  ************     *****       ********     **                       ** *********  \n");
-//
-//    printf("Any key to continue...");
-//    getch();
-//    system("cls");
-//}
-void thanks(){
-
+void thanks()
+{
+    printf("\t\t\t\t\t\t \xB2\xB2            \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2  \xB2\xB2     \xB2\xB2      \xB2\xB2      \xB2\xB2\xB2    \xB2\xB2  \xB2\xB2   \xB2\xB2   \xB2\xB2\xB2\xB2\xB2      \t\xB2\xB2 \n");
+    printf("\t\t\t\t\t\t \xB2\xB2                \xB2\xB2      \xB2\xB2     \xB2\xB2     \xB2\xB2\xB2\xB2     \xB2\xB2 \xB2   \xB2\xB2  \xB2\xB2 \xB2\xB2    \xB2           \t\xB2\xB2 \n");
+    printf("\t\t\t\t\t\t \xB2\xB2                \xB2\xB2      \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2    \xB2\xB2  \xB2\xB2    \xB2\xB2  \xB2  \xB2\xB2  \xB2\xB2\xB2       \xB2\xB2\xB2\xB2\xB2      \t\xB2\xB2 \n");
+    printf("\t\t\t\t\t\t \xB2\xB2                \xB2\xB2      \xB2\xB2     \xB2\xB2   \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2   \xB2\xB2   \xB2 \xB2\xB2  \xB2\xB2 \xB2\xB2          \xB2     \t\xB2\xB2 \n");
+    printf("\t\t\t\t\t\t \xB2\xB2                \xB2\xB2      \xB2\xB2     \xB2\xB2  \xB2\xB2      \xB2\xB2  \xB2\xB2    \xB2\xB2\xB2  \xB2\xB2   \xB2\xB2   \xB2\xB2\xB2\xB2\xB2      \t\xB2\xB2 \n");
+    printf("\n\t\t\t\t\t\t\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\n\n");
+}
+void info()
+{
+    printf("\t\t  \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\t\t  \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Developer's Contact \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
+    printf("\t\t  \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\n\t\t\t\xB3\xB3\xB3       To complain any issue or for a simple thanks       \xB3\xB3\xB3");
+    printf("\n\t\t\t\xB3\xB3\xB3 Make sure to contact through the given information below \xB3\xB3\xB3\n");
+    printf("\n\t\t\t\xB3\xB3\xB3 Developer 1 \xB3\xB3\xB3");
+    printf("\n\t\t\tName    : Tanbir Hasan Bhuiyan");
+    printf("\n\t\t\tEmail    : th.bhuiyan124578@gmail.com");
+    printf("\n\t\t\tContact : +8801687215905");
+    printf("\n\t\t\tAddress : Dhaka, Bangladesh\n");
+    printf("\n\t\t\t\xB3\xB3\xB3 Developer 2 \xB3\xB3\xB3");
+    printf("\n\t\t\tName    : Khandaker Tasfia Reza (DISHA)");
+    printf("\n\t\t\tEmail    : tasfiadisha96@gmail.com");
+    printf("\n\t\t\tContact : +8801687215905");
+    printf("\n\t\t\tAddress : Dhaka, Bangladesh\n");
 }
