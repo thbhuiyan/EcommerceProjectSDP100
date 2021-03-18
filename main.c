@@ -2,7 +2,7 @@
 #include<string.h>
 #include<conio.h>
 #include<stdlib.h>
-#define BBfile  "BBCategory.bin"  //FILES for all clothing,food and toys
+#define DataFile "AllProductsFile.bin"  //FILE that stores all categories clothing,food and toys
 
 //FILES for USER and ADMIN login
 #define ULfile  "myULfile.bin"
@@ -35,7 +35,8 @@ struct BabyProducts
     int bprice;
     int bserial;
     char bname[40];
-} BABY;
+} BABY,ORDER;
+
 struct MenProducts
 {
     int category;
@@ -43,6 +44,7 @@ struct MenProducts
     int mserial;
     char mname[40];
 } MEN;
+
 struct TechProducts
 {
     int category;
@@ -71,6 +73,7 @@ struct order
 //ALL THE FUNTIONS OF CODE !!!
 
 int LoginSystem();
+
 int USER();
 int userLogin();
 int userReg();
@@ -86,12 +89,6 @@ void Bclothing();
 void Btoys();
 void Bfood();
 
-void ADD_CATEGORY();
-void DELETE_CATEGORY();
-void Admin_products_update();
-
-void SeeProducts();
-
 void Mens();
 void Mclothing();
 void Mequipments();
@@ -101,6 +98,11 @@ void Tech();
 void TechMobile();
 void TechComputer();
 void TechAccessories();
+//                           ACCESS AVAILABLE ONLY IN THE MAIN
+void ADD_CATEGORY();
+void DELETE_CATEGORY();
+void SeeProducts();
+void Admin_products_update();
 
 void Cart();
 void Payment();
@@ -108,7 +110,7 @@ void checkout();
 void order_history();
 void Mobile_payment();
 void Card_payment();
-//others
+//  OTHERS
 void thanks();
 void info();
 
@@ -118,11 +120,11 @@ void KidsnMom()
     printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
-    printf("\t\t\t1. Baby clothing\n");
-    printf("\t\t\t2. Baby food.\n");
-    printf("\t\t\t3. Babies toys/learning materials.\n");
-    printf("\t\t\t4. Want to go back to previous panel (KIDS and MOM PAGE)!!!\n");
-    printf("\n\t\t\tENTER your choice \n\t\t\t=>");
+    printf("\t\t\t1. Baby Clothing\n");
+    printf("\t\t\t2. Baby Food\n");
+    printf("\t\t\t3. Babies Toys/Learning Materials\n");
+    printf("\t\t\t4. Want to go back to previous panel (KIDS and MOM PAGE)!!? \n");
+    printf("\n\t\t\tENTER your choice \n\t\t\t=> ");
     scanf("%d",&n);
     switch(n)
     {
@@ -131,7 +133,6 @@ void KidsnMom()
         break;
     case 2:
         Bfood();
-
         break;
     case 3:
         Btoys();
@@ -146,11 +147,12 @@ void KidsnMom()
     }
     Cart();
 }
+//                                             BABY CATEGORY READING HERE
 void Bclothing()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile not created!!!\n");
@@ -175,7 +177,7 @@ void Bclothing()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
@@ -183,7 +185,7 @@ void Bfood()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile not created!!!\n");
@@ -208,7 +210,7 @@ void Bfood()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
@@ -216,7 +218,7 @@ void Btoys()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -241,15 +243,51 @@ void Btoys()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what BABY product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
+//                                                 MEN CATEGORY READING HERE
+void Mens()
+{
+    system("cls");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
+    printf("\t\tENTER what type of Mens product you want to purchase: \n");
+    printf("\t\t1. Mens clothing\n");
+    printf("\t\t2. Men equipments \n");
+    printf("\t\t3. Men food.\n");
+    printf("\t\t4. Want to go back to previous panel!!!\n");
+    printf("\n\t\tENTER your choice \n\t\t=> ");
+    scanf("%d",&n);
+    switch(n)
+    {
+    case 1:
+        Mclothing();
+        break;
+    case 2:
+        Mequipments();
+        break;
+    case 3:
+        Mfood();
+        break;
+    case 4:
+        Mens();
+        break;
+    default:
+        printf("\t\tWrong option selected. Try again !!!");
+        Mens();
+        break;
+    }
+    Cart();
+}
+
 void Mclothing()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -274,7 +312,7 @@ void Mclothing()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
@@ -282,7 +320,7 @@ void Mfood()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -307,7 +345,7 @@ void Mfood()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
@@ -316,7 +354,7 @@ void Mequipments()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -341,15 +379,51 @@ void Mequipments()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what MEN product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
+}
+//                                                  TECH CATEGORY READING HERE
+
+void Tech()
+{
+    system("cls");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
+    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
+    printf("\t\tENTER what type of Tech product you want to purchase: \n");
+    printf("\t\t1. Tech Mobile \n");
+    printf("\t\t2. Tech Computer\n");
+    printf("\t\t2. Tech Accessories\n");
+    printf("\t\t3. Want to go back to previous panel!!!\n");
+    printf("\n\t\tENTER your choice \n\t\t=> ");
+    scanf("%d",&n);
+    switch(n)
+    {
+    case 1:
+        TechMobile();
+        break;
+    case 2:
+        TechComputer();
+        break;
+    case 3:
+        TechAccessories();
+        break;
+    case 4:
+        Tech();
+        break;
+    default:
+        printf("\t\tWrong option selected. Try again !!!");
+        Tech();
+        break;
+    }
+    Cart();
 }
 void TechMobile()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -374,15 +448,16 @@ void TechMobile()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
+
 void TechComputer()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -407,7 +482,7 @@ void TechComputer()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
@@ -415,7 +490,7 @@ void TechAccessories()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile is not created!!!\n");
@@ -440,11 +515,11 @@ void TechAccessories()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=>");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=> ");
     Cart();
     getch();
 }
-
+//                                                READING FINISHED FOR USER PRODUCTS SHOW
 void Cart()
 {
     //remove("Cart.bin");
@@ -452,17 +527,18 @@ void Cart()
     int tempCart;
     scanf("%d",&tempCart);
     getchar();
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     tempFptr=fopen("Cart.bin","ab+");
     if(tempFptr==NULL)
     {
         printf("\t\tFile is not created\n\n");
+        exit(0);
     }
-    while(fread(&BABY,sizeof(BABY),1,fptr))
+    while(fread(&ORDER,sizeof(ORDER),1,fptr))
     {
-        if(BABY.bserial==tempCart)
+        if(ORDER.bserial==tempCart)
         {
-            fwrite(&BABY,sizeof(BABY),1,tempFptr);
+            fwrite(&ORDER,sizeof(ORDER),1,tempFptr);
         }
     }
     fclose(fptr);
@@ -471,21 +547,21 @@ void Cart()
     printf("\n\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 MY CART \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     fptr=fopen("Cart.bin","rb+");
-    while(fread(&BABY,sizeof(BABY),1,fptr))
+    while(fread(&ORDER,sizeof(ORDER),1,fptr))
     {
         printf("\n\t\t\tProducts Category: ");
-        if(BABY.category==1) printf("BABY CLOTHES !!!\t\n");
-        else if(BABY.category==2) printf("BABY FOOD !!!\t\n");
-        else if(BABY.category==3) printf("BABY TOYS !!!\t\n");
+        if(ORDER.category==1) printf("ORDER CLOTHES !!!\t\n");
+        else if(ORDER.category==2) printf("ORDER FOOD !!!\t\n");
+        else if(ORDER.category==3) printf("ORDER TOYS !!!\t\n");
         printf("\n\t\t\tProducts you have added in your cart!!!!\n\n");
-        printf("\t\t\tSerial Number : %d\n",BABY.bserial);
-        printf("\t\t\tProduct Name  : %s\n",BABY.bname);
-        printf("\t\t\tProduct Price : %d\n",BABY.bprice);
+        printf("\t\t\tSerial Number : %d\n",ORDER.bserial);
+        printf("\t\t\tProduct Name  : %s\n",ORDER.bname);
+        printf("\t\t\tProduct Price : %d\n",ORDER.bprice);
     }
     fclose(fptr);
     getch();
     printf("\n\t\tWant to buy more products ? \n\t\t(ENTER 1 :)");
-    printf("\n\t\tProduct selected to confirm order\n\t\t(ENTER 2 :)\n\t\t=>");
+    printf("\n\t\tProduct selected to confirm order\n\t\t(ENTER 2 :)\n\t\t=> ");
     scanf("%d",&n);
     if(n==1)
     {
@@ -518,7 +594,7 @@ void Payment()
     printf("\n\t\tWhat payment system are you going to use ?\n");
     printf("\n\t\tMobile Banking (ENTER 1):\n\n");
     printf("\t\tENTER 2 for VISA/MASTER Card (ENTER 2):\n\n");
-    printf("\t\tCASH ON DELIVERY (ENTER 3):\n\n\t\t=>");
+    printf("\t\tCASH ON DELIVERY (ENTER 3):\n\n\t\t=> ");
     scanf("%d", &choice);
     if(choice==1)
     {
@@ -583,14 +659,13 @@ void checkout()
     FILE *fptr, *temp;
 
     fptr = fopen("order.bin", "ab+");
-    temp = fopen("Cart.bin", "rb");
+    temp = fopen("Cart.bin", "rb+");
     if(fptr==NULL || temp==NULL)
     {
         printf("Unable to open file.");
         exit(1);
     }
     int order_id=1;
-
     while(fread(&order_info, sizeof(order_info), 1, fptr))
     {
         order_id = order_info.id;
@@ -618,15 +693,16 @@ void checkout()
     printf("\n\n\t\t\t\t \xB3\xB3\xB3\xB3\xB3 Do you want to do more shopping ? \xB3\xB3\xB3\xB3\xB3");
     printf("\n\t\t\t\t\t\xB3\xB3\xB3\xB3\xB3 IF YOU WANT (ENTER 1) \xB3\xB3\xB3\xB3\xB3");
     printf("\n\t\t\t\t\t\xB3\xB3\xB3\xB3\xB3 ELSE ENTER ANYTHING ELSE TO EXIT \xB3\xB3\xB3\xB3\xB3");
-    printf("\n\t\t\t\t\t\t=>");
+    printf("\n\t\t\t\t\t\t=> ");
     scanf("%d",&choice);
-    if(choice==1)
+    switch(choice)
     {
+    case 1:
         main();
-    }
-    else
-    {
+        break;
+    default:
         exit(0);
+        break;
     }
 }
 
@@ -666,7 +742,7 @@ void Products_Category()
     printf("\t\t\t2. Mens \n");
     printf("\t\t\t3. Tech and accessories\n");
     printf("\t\t\t4. Want to go back to User Login panel!!!\n");
-    printf("\n\t\t\tENTER your choice \n\t\t\t=>");
+    printf("\n\t\t\tENTER your choice \n\t\t\t=> ");
     scanf("%d",&n);
     switch(n)
     {
@@ -698,14 +774,14 @@ void Admin_products_update()
     printf("\t\t\t2. Mens \n\n");
     printf("\t\t\t3. Tech and accessories\n\n");
     printf("\t\t\t4. Want to go back to ADMIN Login panel!!!\n\n");
-    printf("\n\t\t\tENTER your choice \n\n\t\t\t=>");
+    printf("\n\t\t\tENTER your choice \n\n\t\t\t=> ");
     scanf("%d",&n);
     switch(n)
     {
     case 1:
         system("cls");
         printf("\n\t\t\t \xB3\xB3\xB3\xB3 ADD BABY'S PRODUCT (ENTER 1)\xB3\xB3\xB3\xB3\n");
-        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE BABY'S PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=>");
+        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE BABY'S PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=> ");
         scanf("%d",&choice);
         if(choice==1)
         {
@@ -733,7 +809,7 @@ void Admin_products_update()
     case 2:
         system("cls");
         printf("\n\t\t\t \xB3\xB3\xB3\xB3 ADD MENS' PRODUCT (ENTER 1)\xB3\xB3\xB3\xB3\n");
-        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE MENS' PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=>");
+        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE MENS' PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=> ");
         scanf("%d",&choice);
         if(choice==1)
         {
@@ -761,7 +837,7 @@ void Admin_products_update()
     case 3:
         system("cls");
         printf("\n\t\t\t \xB3\xB3\xB3\xB3 ADD TECH PRODUCT (ENTER 1)\xB3\xB3\xB3\xB3\n");
-        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE TECH PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=>");
+        printf("\n\t\t\t \xB3\xB3\xB3\xB3 DELETE TECH PRODUCT (ENTER 2)\xB3\xB3\xB3\xB3\n\n\t\t\t\t=> ");
         scanf("%d",&choice);
         if(choice==1)
         {
@@ -805,7 +881,7 @@ void ADD_CATEGORY()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"ab+");
+    fptr=fopen(DataFile,"ab+");
     if(fptr==NULL)
     {
         printf("\t\tFile not created!!!\n");
@@ -815,7 +891,7 @@ void ADD_CATEGORY()
         printf("\n\tIf BABY CLOTHING (ENTER 1)\t|||\tBABY FOOD (ENTER 2)\t|||\tBABY TOYS (ENTER 3) [SERIAL 100-300]\n\t");
         printf("\n\tIf MEN CLOTHING (ENTER 4)\t|||\tMEN FOOD (ENTER 5)\t|||\tMEN EQUIPMENTS (ENTER 6) [SERIAL 400-600]\n\t");
         printf("\n\tIf TECH MOBILE (ENTER 7)\t|||\tTECH COMPUTER (ENTER 8)\t|||\tTECH ACCESSORIES (ENTER 9) [SERIAL 700-900]\n");
-        printf("\n\t\t Want to go back to previous page!!!(ENTER 10)\n\n\t\t =>");
+        printf("\n\t\t Want to go back to previous page!!!(ENTER 10)\n\n\t\t => ");
         scanf("%d",&BABY.category);
         if(BABY.category==10)
         {
@@ -831,7 +907,7 @@ void ADD_CATEGORY()
 
         fwrite(&BABY,sizeof(BABY),1,fptr);
         fclose(fptr);
-        fptr=fopen(BBfile,"rb+");
+        fptr=fopen(DataFile,"rb+");
         while(fread(&BABY,sizeof(BABY),1,fptr))
         {
             printf("\n\n\tProducts Category: ");
@@ -864,7 +940,7 @@ void DELETE_CATEGORY()
     int tempDelete;
     printf("\n\t\tENTER the data you want to delete :\t");
     scanf("%d",&tempDelete);
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     tempFptr=fopen("temp.bin","wb+");
     if(tempFptr==NULL)
     {
@@ -880,15 +956,15 @@ void DELETE_CATEGORY()
     }
     fclose(fptr);
     fclose(tempFptr);
-    remove(BBfile);
-    rename("temp.bin",BBfile);
+    remove(DataFile);
+    rename("temp.bin",DataFile);
 }
 
 void SeeProducts()
 {
     FILE *fptr;
     system("cls");
-    fptr=fopen(BBfile,"rb+");
+    fptr=fopen(DataFile,"rb+");
     if(fptr==NULL)
     {
         printf("\t\tFile not created!!!\n");
@@ -907,74 +983,7 @@ void SeeProducts()
     fclose(fptr);
 }
 
-void Mens()
-{
-    system("cls");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
-    printf("\t\tENTER what type of Mens product you want to purchase: \n");
-    printf("\t\t1. Mens clothing\n");
-    printf("\t\t2. Men equipments \n");
-    printf("\t\t3. Men food.\n");
-    printf("\t\t4. Want to go back to previous panel!!!\n");
-    printf("\n\t\tENTER your choice \n\t\t=>");
-    scanf("%d",&n);
-    switch(n)
-    {
-    case 1:
-        Mclothing();
-        break;
-    case 2:
-        Mequipments();
-        break;
-    case 3:
-        Mfood();
-        break;
-    case 4:
-        Mens();
-        break;
-    default:
-        printf("\t\tWrong option selected. Try again !!!");
-        Mens();
-        break;
-    }
-    Cart();
-}
-void Tech()
-{
-    system("cls");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2 Products Category Page \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n\n");
-    printf("\t\tENTER what type of Tech product you want to purchase: \n");
-    printf("\t\t1. Tech Mobile \n");
-    printf("\t\t2. Tech Computer\n");
-    printf("\t\t2. Tech Accessories\n");
-    printf("\t\t3. Want to go back to previous panel!!!\n");
-    printf("\n\t\tENTER your choice \n\t\t=>");
-    scanf("%d",&n);
-    switch(n)
-    {
-    case 1:
-        TechMobile();
-        break;
-    case 2:
-        TechComputer();
-        break;
-    case 3:
-        TechAccessories();
-        break;
-    case 4:
-        Tech();
-        break;
-    default:
-        printf("\t\tWrong option selected. Try again !!!");
-        Tech();
-        break;
-    }
-    Cart();
-}
+
 int LoginSystem()
 {
     printf("\n\t\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2");
@@ -1079,9 +1088,9 @@ int userLogin()
     printf("\t\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
     printf("\t\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2    TO LOGIN USER PANEL    \xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n ");
     printf("\t\t\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\xB2\n");
-    printf("\n\t\t\tENTER YOUR USERNAME : \n\t\t\t=>");
+    printf("\n\t\t\tENTER YOUR USERNAME : \n\t\t\t=> ");
     scanf("%s",&username);
-    printf("\t\t\tENTER YOUR PASSWORD : \n\t\t\t=>");
+    printf("\t\t\tENTER YOUR PASSWORD : \n\t\t\t=> ");
     scanf("%s",&password);
     while(fread(&userInfo, sizeof(userInfo), 1, fptr))
     {
@@ -1123,7 +1132,8 @@ int userLogin()
         printf("\t\t\tYOU MAY TRY TO REGISTRATION OR LOG IN AGAIN :\n");
         printf("\n\t\t\tTO REGISTRATION (ENTER 1):\n");
         printf("\n\t\t\tTO LOGIN (ENTER 2):\n");
-        printf("\n\t\t\tFORGOTTEN PASSWORD (ENTER 3):\n\n\t\t\t=>\n");
+        printf("\n\t\t\tFORGOTTEN PASSWORD (ENTER 3):\n");
+        printf("\n\t\t\tTO GO BACK TO MAIN MENU (ENTER 4):\n\n\t\t\t=> ");
         choice=0;
         scanf("%d",&choice);
         system("cls");
@@ -1139,8 +1149,12 @@ int userLogin()
             userLogin();
             break;
         case 3:
-            printf("\t\tFORGOTTEN PASSWORD!!!\n");
+            printf("\t\tFORGOTTEN PASSWORD !!!\n");
             userForgot();
+            break;
+        case 4:
+            printf("\t\tBACK TO MAIN PANEL !!!\n");
+            main();
             break;
         }
     }
@@ -1300,7 +1314,8 @@ int adminLogin()
         printf("\t\t\tYOU MAY TRY TO REGISTRATION OR LOG IN AGAIN :\n");
         printf("\n\t\t\tTO REGISTRATION (ENTER 1):\n");
         printf("\n\t\t\tTO LOGIN (ENTER 2):\n");
-        printf("\n\t\t\tFORGOTTEN PASSWORD (ENTER 3):\n\n\t\t\t=>\n");
+        printf("\n\t\t\tFORGOTTEN PASSWORD (ENTER 3):\n");
+        printf("\n\t\t\tTO GO BACK TO MAIN MENU (ENTER 4):\n\n\t\t\t=> ");
         choice=0;
         scanf("%d",&choice);
         system("cls");
@@ -1318,6 +1333,10 @@ int adminLogin()
         case 3:
             printf("\t\tFORGOTTEN PASSWORD!!!\n");
             adminForgot();
+            break;
+        case 4:
+            printf("\t\tBACK TO MAIN PANEL !!!\n");
+            main();
             break;
         }
     }
@@ -1401,8 +1420,4 @@ void info()
     printf("\n\t\t\tContact : +8801687215905");
     printf("\n\t\t\tAddress : Dhaka, Bangladesh\n");
 }
-
-
-
-
 
