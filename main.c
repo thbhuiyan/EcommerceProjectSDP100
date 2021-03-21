@@ -685,6 +685,7 @@ void checkout()
     fclose(fptr);
     fclose(temp);
     remove("Cart.bin");
+    //order_history();
     printf("\n\t\t\t\t\t\t\t\t\t\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3 Order placed Successfully \xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\xB3\n\n");
     thanks();
     printf("\n\t\t\t\t\t\t\t\t\xB3\xB3 HOPE YOU ENJOYED SHOPPING WITH US !!! HAPPY SHOPPING :) \xB3\xB3\n");
