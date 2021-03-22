@@ -247,7 +247,7 @@ void Btoys()
     Cart();
     getch();
 }
-//                                                 MEN CATEGORY READING HERE
+//                                                MEN CATEGORY READING HERE
 void Mens()
 {
     system("cls");
@@ -394,8 +394,8 @@ void Tech()
     printf("\t\tENTER what type of Tech product you want to purchase: \n");
     printf("\t\t1. Tech Mobile \n");
     printf("\t\t2. Tech Computer\n");
-    printf("\t\t2. Tech Accessories\n");
-    printf("\t\t3. Want to go back to previous panel!!!\n");
+    printf("\t\t3. Tech Accessories\n");
+    printf("\t\t4. Want to go back to previous panel!!!\n");
     printf("\n\t\tENTER your choice \n\t\t=> ");
     scanf("%d",&n);
     switch(n)
@@ -515,7 +515,7 @@ void TechAccessories()
         }
     }
     fclose(fptr);
-    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t=> ");
+    printf("\n\n\t\t\tENTER what TECH product you want to purchase: \n\t\t\t => ");
     Cart();
     getch();
 }
@@ -560,14 +560,26 @@ void Cart()
     }
     fclose(fptr);
     getch();
-    printf("\n\t\tWant to buy more products ? \n\t\t(ENTER 1 :)");
-    printf("\n\t\tProduct selected to confirm order\n\t\t(ENTER 2 :)\n\t\t=> ");
+    system("cls");
+    printf("\n\t\tWant to buy more products ? \n\t\t");
+    printf("\n\t\tWhich category ? \n\t\t");
+    printf("\n\t\t1.BABY? \t\t(ENTER 1 :)");
+    printf("\n\t\t2.MENS? \t\t(ENTER 2 :)");
+    printf("\n\t\t3.TECH? \t\t(ENTER 3 :)");
+
+    printf("\n\t\tProduct selected to confirm order\n\t\t(ENTER 4 :)\n\t\t=> ");
     scanf("%d",&n);
     if(n==1)
     {
         KidsnMom();
     }
-    else if(n==2)
+    else if(n==2){
+        Mens();
+    }
+    else if(n==3){
+        Tech();
+    }
+    else if(n==4 || 4<=n)
     {
         Payment();
     }
@@ -606,7 +618,7 @@ void Payment()
     }
     else if(choice == 3)
     {
-        printf("\n\n\t\tThank you for placing your order!!\n");
+        printf("\n\n\t\tThank you %s, for placing your order!!\n",userInfo.name);
         checkout();
     }
 }
